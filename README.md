@@ -17,22 +17,69 @@ The dataset (including the sampled dataset) can be obtained from [Google Drive](
 
 ## Running
 
-### Test with LLMs (except GPT-4o)
+### Test Zero-shot/Two-shot Summarization with LLMs (except GPT-4)
 
 ```
 # Testing 0-shot text summarization
-python scripts/0shot/run_0shot.py --model [model_name] --input [test_data] --output [result_saving_folder] --delay 0 --token [your hugging face API token]
+./zero-shot/run_0shot.sh [config]
 
 # Testing 2-shot text summarization
-python scripts/2shot/run_2shot.py --model [model_name] --input [test_data] --extra [example_data] --output [result_saving_folder] --delay 0 --token [your hugging face API token]
+./two-shot/run_2shot.sh [config]
 ```
-Quick start examples can be found in ``run0shot_command.txt`` and ``run2shot_command.txt``. The output will be a JSON file with prediction results, which can be evaluated using our evaluation script.
+
+The output will be a JSON file with prediction results, which can be evaluated using our `json_evaluation.py` script.
+
+### Test Zero-shot/Two-shot Summarization with GPT-4
+
+```
+# Testing 0-shot text summarization
+./GPT/GPT_api.sh [config]
+
+# Testing 2-shot text summarization
+./GPT/GPT_api_2shot.sh [config]
+```
+
+The output will also be a JSON file with prediction results, which can be evaluated using our `json_evaluation.py` script.
+
+### Fine-tuning Pretrained Language Models (PLMs)
+
+```
+# Fine-tuning BART
+./finetune/run_bart.sh [config]
+
+# Fine-tuning PEGASUS-X
+./finetune/run_pegasusx.sh [config]
+
+# Testing Cross-domain performance with PLMs
+./finetune/do_predict.sh [config]
+```
+
+Fine-tuning scripts automatically save model checkpoints. To evaluate cross-domain performance, you can use a model checkpoint from the source domain to test on a target domain dataset.
+
+### Fine-tuning Llama3
+
+```
+# Pre-processing dataset for fine-tuning Llama
+python ./finetune-Llama/data/data_process4llama.py
+
+# Fine-tuning Llama3
+./finetune-Llama/train.sh [config]
+
+# Generating predictions with fine-tuned Llama3
+./finetune-Llama/predic.sh [config]
+```
+
+#### Accessing Llama3
+
+We use Hugging Face to access the Llama3 model and LoRA for fine-tuning. To gain access, complete the official authorization process, then enter your authorized Hugging Face API key, associated with your permitted account, into the `sh` files to successfully run the fine-tuning scripts. For further details, please refer to the official Meta documentation: [Fine-Tuning Guide](https://www.llama.com/docs/how-to-guides/fine-tuning/) and the Hugging Face documentation: [Llama3.1-8B Model Card](https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct).
 
 ### Get Evaluation Metrics
+
 ```
-python scripts/json_evaluation.py
+python json_evaluation.py
 ```
-Before evaluation, you need to insert the path of your JSON files to the ``json_files`` argument in the ``json_evaluation.py`` script.
+
+Before running the evaluation, insert the path of your JSON files as the `json_files` argument in the `json_evaluation.py` script.
 
 ## Citation
 
