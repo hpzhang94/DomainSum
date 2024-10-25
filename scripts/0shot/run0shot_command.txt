@@ -1,0 +1,6 @@
+python run0shot_api.py ^
+--model "meta-llama/Llama-3.1-8B-Instruct" ^
+--input "./data/genre_shift_sampled/train/cnndm_train_sampled_20.json" ^
+--output "./test-output/" ^
+--delay 0 ^
+--token "--"
