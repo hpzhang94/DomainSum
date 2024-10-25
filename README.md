@@ -26,7 +26,13 @@ python scripts/0shot/run_0shot.py --model [model_name] --input [test_data] --out
 # Testing 2-shot text summarization
 python scripts/2shot/run_2shot.py --model [model_name] --input [test_data] --extra [example_data] --output [result_saving_folder] --delay 0 --token [your hugging face API token]
 ```
-Quick start examples can be found in "run0shot_command.txt" and "run2shot_command.txt".
+Quick start examples can be found in ``run0shot_command.txt`` and ``run2shot_command.txt``. The output will be a JSON file with prediction results, which can be evaluated using our evaluation script.
+
+### Get Evaluation Metrics
+```
+python scripts/json_evaluation.py
+```
+Before evaluation, you need to modify the ``json_files`` argument and insert the path to your prediction result JSON file in the ``json_evaluation.py`` script.
 
 ## Citation
 
