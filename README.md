@@ -15,6 +15,18 @@ Please check more details in our paper [DomainSum: A Hierarchical Benchmark for 
 
 The dataset (including the sampled dataset) can be obtained from [Google Drive](https://drive.google.com/drive/folders/1rNp8PZg9iADISCjApvP4LY9oCbR0wbi0?usp=sharing).
 
+## Running
+
+### Test with LLMs (except GPT-4o)
+
+```
+# Testing 0-shot text summarization
+python scripts/0shot/run_0shot.py --model [model_name] --input [test_data] --output [result_saving_folder] --delay 0 --token [your hugging face API token]
+
+# Testing 2-shot text summarization
+python scripts/2shot/run_2shot.py --model [model_name] --input [test_data] --extra [example_data] --output [result_saving_folder] --delay 0 --token [your hugging face API token]
+```
+Quick start examples can be found in "run0shot_command.txt" and "run2shot_command.txt".
 
 ## Citation
 
