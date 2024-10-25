@@ -32,7 +32,7 @@ Quick start examples can be found in ``run0shot_command.txt`` and ``run2shot_com
 ```
 python scripts/json_evaluation.py
 ```
-Before evaluation, you need to modify the ``json_files`` argument and insert the path to your prediction result JSON file in the ``json_evaluation.py`` script.
+Before evaluation, you need to insert the path of your JSON files to the ``json_files`` argument in the ``json_evaluation.py`` script.
 
 ## Citation
 
