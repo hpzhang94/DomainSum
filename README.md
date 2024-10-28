@@ -17,6 +17,15 @@ The dataset (including the sampled dataset) can be obtained from [Google Drive](
 
 ## Running
 
+### Data Statistics Collection
+
+```
+python ./get_statistics.py
+```
+
+To analyze dataset characteristics, use `get_statistics.py` that extracts the 8 key measures used in our paper.
+
+
 ### Test Zero-shot/Two-shot Summarization with LLMs (except GPT-4)
 
 ```
