@@ -15,6 +15,23 @@ Please check more details in our paper [DomainSum: A Hierarchical Benchmark for 
 
 The dataset (including the sampled dataset) can be obtained from [Google Drive](https://drive.google.com/drive/folders/1rNp8PZg9iADISCjApvP4LY9oCbR0wbi0?usp=sharing).
 
+## Preparation for running
+1. Create the conda environment
+    ```
+    conda create -n domainsum python=3.10
+    ```
+2. Activate the conda environment
+    ```
+    conda activate domainsum
+    ```
+3. Install pytorch. Please check your CUDA version before the installation and modify it accordingly, or you can refer to [pytorch website](https://pytorch.org)
+    ```
+    conda install pytorch torchvision torchaudio pytorch-cuda=12.4 -c pytorch -c nvidia
+    ```
+3. Install requirements
+    ```
+    pip install -r requirements.txt
+
 ## Running
 
 ### Data Statistics Collection
